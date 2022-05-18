@@ -231,12 +231,12 @@ let scene4 = {
         FullScreenKey.on('down', function () {
 
             if (this.scale.isFullscreen)
-            {
+            {    appear.play();
                 button.setFrame(0);
                 this.scale.stopFullscreen();
             }
             else
-            {
+            {  appear.play();
                 button.setFrame(1);
                 this.scale.startFullscreen();
             }
@@ -1180,7 +1180,7 @@ function check_collision (rabbitBig, platforms)
     creditsButton.on("pointerup", backToMenu, this);
     creditsButton.on("pointerup", enterSoundNow, this);
    // credits to: https://phaser.discourse.group/t/auto-scrolling-text-issue-phaser-3/2984
-   creditText = `Credits:\n1) credits to CS 42 Professor Ethan Wilde\n2) credits for meadow.jpg: https://opengameart.org/content/meadow-background\n3) credits to migfus20: https://opengameart.org/content/cute-intro-music\n4) credits for thatsItFortoday.mp3 - unable to find for now\n5) credits to: https://opengameart.org/content/mascot-bunny-character\n6) credits to: https://opengameart.org/content/mascot-bunny-character\n7) credits to: https://opengameart.org/content/dark-ground\n8) credits for: https://opengameart.org/content/7-eating-crunches\n9) credits to StumpyStrust for ui sounds (on/off): https://opengameart.org/content/ui-sounds\n10) credits to p0ss for Interface Sounds Starter Pack: https://opengameart.org/content/interface-sounds-starter-pack\n11) credits to wobbleboxx for wrong.mp3 and levelUp.mp3: https://opengameart.org/content/level-up-power-up-coin-get-13-sounds\n12) credits to jalastram - Jesús Lastra: https://opengameart.org/content/gui-sound-effects-4\n13) credits to full screen: https://raw.githubusercontent.com/photonstorm/phaser3-examples/master/public/assets/ui/fullscreen-white.png\n14) credits to clock.wav: https://opengameart.org/content/ticking-clock-0\n15) credits to completeTask.mp3: https://opengameart.org/content/completion-sound\n16) Little Robot Sound Factory - www.littlerobotsoundfactory.com\n17) By Zeyu Ren 任泽宇: https://opengameart.org/content/backgrounds-for-2d-platformers\n18) credits to BBandRage: https://opengameart.org/content/rpg-towntravel-or-credits-song\n19) Thank you to everyone who helped from the CS 42 Class and the CS 42 TA Benjamin\n20) Thank you to my Madre ${key_stroke}\n21)`
+   creditText = `Credits:\n1) credits to CS 42 Professor Ethan Wilde\n2) credits for meadow.jpg: https://opengameart.org/content/meadow-background\n3) credits to migfus20: https://opengameart.org/content/cute-intro-music\n4) credits for thatsItFortoday.mp3 - unable to find for now\n5) credits to: https://opengameart.org/content/mascot-bunny-character\n6) credits to: https://opengameart.org/content/mascot-bunny-character\n7) credits to: https://opengameart.org/content/dark-ground\n8) credits for: https://opengameart.org/content/7-eating-crunches\n9) credits to StumpyStrust for ui sounds (on/off): https://opengameart.org/content/ui-sounds\n10) credits to p0ss for Interface Sounds Starter Pack: https://opengameart.org/content/interface-sounds-starter-pack\n11) credits to wobbleboxx for wrong.mp3 and levelUp.mp3: https://opengameart.org/content/level-up-power-up-coin-get-13-sounds\n12) credits to jalastram - Jesús Lastra: https://opengameart.org/content/gui-sound-effects-4\n13) credits to full screen: https://raw.githubusercontent.com/photonstorm/phaser3-examples/master/public/assets/ui/fullscreen-white.png\n14) credits to clock.wav: https://opengameart.org/content/ticking-clock-0\n15) credits to completeTask.mp3: https://opengameart.org/content/completion-sound\n16) Little Robot Sound Factory - www.littlerobotsoundfactory.com\n17) By Zeyu Ren 任泽宇: https://opengameart.org/content/backgrounds-for-2d-platformers\n18) credits to BBandRage: https://opengameart.org/content/rpg-towntravel-or-credits-song\n19) Thank you to first my cousin who inspired me to make the game, those who helped from the CS 42 Class, and the CS 42 TA Benjamin\n20) Thank you to my Madre ${key_stroke}\n21)`
    
     let arrayText = creditText.split('\n')
     let text = this.add.text(0, 0, '', {
