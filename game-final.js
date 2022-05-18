@@ -173,7 +173,7 @@ let scene4 = {
     helpText = this.add.text(
       670,
       430,
-      " Type the words on \n the screen, hit enter \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive!",
+      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive!",
       {
         fontFamily: "Balsamiq Sans",
   
@@ -467,8 +467,10 @@ let scene4 = {
       color: "#a579d4",
       fontSize: "20px",
     });
+
+     var key_stroke = String.fromCodePoint(0x1F552);
   
-    timeText = this.add.text(700, 15, "timer: " + formatTime(this.initialTime), {
+    timeText = this.add.text(700, 15, `${key_stroke} ` + formatTime(this.initialTime), {
       fontFamily: "Balsamiq Sans",
   
       color: "#a579d4",
@@ -1028,7 +1030,11 @@ function rabbitHitPlatform() { console.log('bunny on platform');
 
 function check_collision (rabbitBig, platforms)
 {
-    candosomething = true;
+   if (rabbitBig.y < 250) 
+   { console.log("uh oh restart postion");
+    posx = 50;
+       posy = 250;
+      rabbitBig.setPosition(posx, posy);}
 }
 
 
@@ -1052,7 +1058,8 @@ function check_collision (rabbitBig, platforms)
   // onEvent function
   function onEvent() {
     this.initialTime -= 1; // One second
-    timeText.setText("timer: " + formatTime(this.initialTime));
+    var key_stroke = String.fromCodePoint(0x1F552);
+    timeText.setText(`${key_stroke} ` + formatTime(this.initialTime));
    
     if (this.initialTime < 10) {
       this.initialTime -= 1;
@@ -1090,7 +1097,7 @@ function check_collision (rabbitBig, platforms)
       .image(550, 500, "menu")
       .setInteractive({ useHandCursor: true });
     const creditsButton = this.add
-      .image(250, 500, "babyHeart")
+      .image(240, 500, "babyHeart")
       .setInteractive({ useHandCursor: true });
     creditsButton.on("pointerup", scene3Transition, this);
     menuButton.on("pointerup", backToMenu, this);
@@ -1152,7 +1159,9 @@ function check_collision (rabbitBig, platforms)
 // scene 4 Create
   function scene4Create() {
     this.add.image(0, 0, "bg-none").setOrigin(0, 0);
+    
     this.scale.fullscreenTarget = document.getElementById("app");
+    var key_stroke = String.fromCodePoint(0x2764) 	;
     enterSound = this.sound.add("enterSound", { loop: false });
     creditsSound = this.sound.add("creditsMusic", { loop: false,
       volume: 0.7,
@@ -1165,13 +1174,13 @@ function check_collision (rabbitBig, platforms)
       fontSize: "17px",
     });
     const creditsButton = this.add
-      .image(700, 500, "menu")
+      .image(700, 500, "white-menu")
       .setInteractive({ useHandCursor: true });
 
     creditsButton.on("pointerup", backToMenu, this);
     creditsButton.on("pointerup", enterSoundNow, this);
    // credits to: https://phaser.discourse.group/t/auto-scrolling-text-issue-phaser-3/2984
-   creditText = `Credits:\n1) credits to CS 42 Professor Ethan Wilde\n2) credits for meadow.jpg: https://opengameart.org/content/meadow-background\n3) credits to migfus20: https://opengameart.org/content/cute-intro-music\n4) credits for thatsItFortoday.mp3 - unable to find for now\n5) credits to: https://opengameart.org/content/mascot-bunny-character\n6) credits to: https://opengameart.org/content/mascot-bunny-character\n7) credits to: https://opengameart.org/content/dark-ground\n8) credits for: https://opengameart.org/content/7-eating-crunches\n9) credits to StumpyStrust for ui sounds (on/off): https://opengameart.org/content/ui-sounds\n10) credits to p0ss for Interface Sounds Starter Pack: https://opengameart.org/content/interface-sounds-starter-pack\n11) credits to wobbleboxx for wrong.mp3 and levelUp.mp3: https://opengameart.org/content/level-up-power-up-coin-get-13-sounds\n12) credits to jalastram - Jesús Lastra: https://opengameart.org/content/gui-sound-effects-4\n13) credits to full screen: https://raw.githubusercontent.com/photonstorm/phaser3-examples/master/public/assets/ui/fullscreen-white.png\n14) credits to clock.wav: https://opengameart.org/content/ticking-clock-0\n15) credits to completeTask.mp3: https://opengameart.org/content/completion-sound\n16) Little Robot Sound Factory - www.littlerobotsoundfactory.com\n17) By Zeyu Ren 任泽宇: https://opengameart.org/content/backgrounds-for-2d-platformers\n18) credits to BBandRage: https://opengameart.org/content/rpg-towntravel-or-credits-song\n19) Thank you to everyone who helped from the CS 42 Class and the CS 42 TA Benjamin\n20) Thank you to my Madre\n21)`
+   creditText = `Credits:\n1) credits to CS 42 Professor Ethan Wilde\n2) credits for meadow.jpg: https://opengameart.org/content/meadow-background\n3) credits to migfus20: https://opengameart.org/content/cute-intro-music\n4) credits for thatsItFortoday.mp3 - unable to find for now\n5) credits to: https://opengameart.org/content/mascot-bunny-character\n6) credits to: https://opengameart.org/content/mascot-bunny-character\n7) credits to: https://opengameart.org/content/dark-ground\n8) credits for: https://opengameart.org/content/7-eating-crunches\n9) credits to StumpyStrust for ui sounds (on/off): https://opengameart.org/content/ui-sounds\n10) credits to p0ss for Interface Sounds Starter Pack: https://opengameart.org/content/interface-sounds-starter-pack\n11) credits to wobbleboxx for wrong.mp3 and levelUp.mp3: https://opengameart.org/content/level-up-power-up-coin-get-13-sounds\n12) credits to jalastram - Jesús Lastra: https://opengameart.org/content/gui-sound-effects-4\n13) credits to full screen: https://raw.githubusercontent.com/photonstorm/phaser3-examples/master/public/assets/ui/fullscreen-white.png\n14) credits to clock.wav: https://opengameart.org/content/ticking-clock-0\n15) credits to completeTask.mp3: https://opengameart.org/content/completion-sound\n16) Little Robot Sound Factory - www.littlerobotsoundfactory.com\n17) By Zeyu Ren 任泽宇: https://opengameart.org/content/backgrounds-for-2d-platformers\n18) credits to BBandRage: https://opengameart.org/content/rpg-towntravel-or-credits-song\n19) Thank you to everyone who helped from the CS 42 Class and the CS 42 TA Benjamin\n20) Thank you to my Madre ${key_stroke}\n21)`
    
     let arrayText = creditText.split('\n')
     let text = this.add.text(0, 0, '', {
