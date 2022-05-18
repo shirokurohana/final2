@@ -1931,10 +1931,7 @@ function goBackToScene2() {
     
     
   }
-  function backToMenu() {
-   window.location.reload();
-    this.scene.start("scene1");
-  }
+  
   
   function enterSoundNow() {
     enterSound.play();

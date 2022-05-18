@@ -171,9 +171,9 @@ let scene4 = {
     this.input.setDefaultCursor("url(assets/images/cursor1.png), default");
   
     helpText = this.add.text(
-      650,
-      440,
-      "Type the words on \n the screen to get points \n and keep Zoom Zoom \n alive",
+      670,
+      430,
+      " Type the words on \n the screen, hit enter \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive!",
       {
         fontFamily: "Balsamiq Sans",
   
@@ -1000,16 +1000,16 @@ function check_collision (rabbitBig, platforms)
    
     
     const menuButton = this.add
-      .image(100, 500, "menu")
+      .image(250, 500, "menu")
       .setInteractive({ useHandCursor: true });
     const creditsButton = this.add
-      .image(377, 500, "babyHeart")
+      .image(500, 500, "babyHeart")
       .setInteractive({ useHandCursor: true });
     creditsButton.on("pointerup", scene3Transition, this);
     menuButton.on("pointerup", backToMenu, this);
     menuButton.on("pointerup", enterSoundNow, this);
   
-    menuText = this.add.text(487, 400, "Back to menu", {
+    menuText = this.add.text(190, 400, "Back to menu", {
       fontFamily: "Balsamiq Sans",
   
       color: "#a579d4",
@@ -1018,7 +1018,7 @@ function check_collision (rabbitBig, platforms)
     // credits: https://stackoverflow.com/questions/42679712/why-does-the-red-heart-emoji-require-two-code-points-but-the-other-colored-hear/42680595
 
     var key_stroke = String.fromCodePoint(0x2764);
-    creditsButtonText = this.add.text(330, 400, "Credits " + key_stroke, {
+    creditsButtonText = this.add.text(457, 400, "Credits " + key_stroke, {
       fontFamily: "Balsamiq Sans",
   
       color: "#a579d4",
@@ -1071,14 +1071,14 @@ function check_collision (rabbitBig, platforms)
       volume: 0.7,
     });
     creditsSound.play();
-    creditsTextMenu = this.add.text(657, 430, "Back to menu", {
+    creditsTextMenu = this.add.text(650, 430, "Back to menu", {
       fontFamily: "Balsamiq Sans",
   
       color: "#fff",
       fontSize: "17px",
     });
     const creditsButton = this.add
-      .image(700, 500, "menu")
+      .image(700, 500, "white-menu")
       .setInteractive({ useHandCursor: true });
 
     creditsButton.on("pointerup", backToMenu, this);
@@ -1113,6 +1113,13 @@ function check_collision (rabbitBig, platforms)
       })
     }
   }
+  function backToMenu() {
+   window.location.reload();
+    this.scene.start("scene1");
+  }
+function enterSoundNow() {
+    enterSound.play();
+  }
   
   // scene 4 Upload
   function scene4Update() {}
@@ -1120,3 +1127,4 @@ function check_collision (rabbitBig, platforms)
   function scene3Transition() {
     this.scene.start("scene4", { fadeIn: true });
   }
+
