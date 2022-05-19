@@ -315,8 +315,8 @@ let scene4 = {
   // scene 2 preload
     function scene2Preload() {
     // load sound buttons
-    this.load.image("soundOn", "assets/sprites/soundOn.png");
-    this.load.image("soundOff", "assets/sprites/soundOff.png");
+    this.load.image("purple-soundOn", "assets/sprites/purple-soundOn.png");
+    this.load.image("purple-soundOff", "assets/sprites/purple-soundOff.png");
     this.load.html("nameform", "assets/html/nameform.html");
     this.load.spritesheet("rabbitBig", "assets/sprites/rabbitBig.png", {
       frameWidth: 78,
@@ -421,10 +421,10 @@ let scene4 = {
   
     this.add.image(0, 0, "meadow").setOrigin(0, 0);
     const soundOnButton2 = this.add
-      .image(50, 70, "soundOn")
+      .image(50, 70, "purple-soundOn")
       .setInteractive({ useHandCursor: true });
     const soundOffButton2 = this.add
-      .image(50, 130, "soundOff")
+      .image(50, 130, "purple-soundOff")
       .setInteractive({ useHandCursor: true });
 
       soundOnButton2.on("pointerup", playsound, this);
