@@ -172,8 +172,8 @@ let scene4 = {
   
     helpText = this.add.text(
       670,
-      430,
-      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive!",
+      400,
+      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive! \n To enter fullscreen, \n press 7",
       {
         fontFamily: "Balsamiq Sans",
   
@@ -270,7 +270,7 @@ let scene4 = {
     helpText.visible = true;
   
     this.time.addEvent({
-      delay: 2000,
+      delay: 7000,
       loop: false,
       callback: () => {
         helpText.visible = false;
@@ -282,7 +282,7 @@ let scene4 = {
     appear.play();
     infoTextStuff.visible = true;
     this.time.addEvent({
-      delay: 2000,
+      delay: 7000,
       loop: false,
       callback: () => {
         infoTextStuff.visible = false;
@@ -586,7 +586,7 @@ let scene4 = {
   
     // credits to Phaser: https://labs.phaser.io/edit.html?src=src%5Cgame%20objects%5Cdom%20element%5Cinput%20test.js
     // credits to: https://ourcade.co/tools/phaser3-text-styler/
-    var text = this.add.text(320, 510, "Please type: ", {
+    var text = this.add.text(250, 510, "Please type: ", {
       color: "white",
       fontSize: "20px ",
       fontFamily: "Balsamiq Sans",
@@ -644,6 +644,7 @@ let scene4 = {
         if (inputText.value == currentWord || inputText.value == newWord) {
           goodJob.play();
           if (score < 100) {
+            
             this.value = "";
   
             //  Hide the login element
@@ -813,8 +814,8 @@ let scene4 = {
           // credits to: https://phaser.discourse.group/t/delete-an-item-in-a-group/7613/2
           lifeHearts.remove(lifeHearts.getLast(true), true);
           pop.play();
-          grow -= 0.1;
-          rabbitBig.setScale(grow);
+          //grow -= 0.1;
+         // rabbitBig.setScale(grow);
           lifeHeartsLeft -= 1;
           
           if (lifeHeartsLeft <= 0) {
@@ -1124,6 +1125,16 @@ function check_collision (rabbitBig, platforms)
       color: "#a579d4",
       fontSize: "32px",
     });
+    highSpeedText = this.add.text(140, 300, "Wow that's a high WPM! According to ratatype.com, the fastest English\n     language typist in the world had a peak speed of 216 WPM.", {fontFamily: "Balsamiq Sans",
+  
+      color: "#a579d4",
+      fontSize: "17px",});
+    avgSpeedText = this.add.text(220, 300, "Nice job! According to ratatype.com,\nthe average WPM for boys is 44 WPM \nmeanwhile the average WPM for girls is 37 WPM.", {fontFamily: "Balsamiq Sans",
+  
+      color: "#a579d4",
+      fontSize: "17px",});
+    highSpeedText.visible = false;
+    avgSpeedText.visible = false;
     scoreText = this.add.text(350, 200, "score: " + score, {
       fontFamily: "Balsamiq Sans",
   
@@ -1132,6 +1143,14 @@ function check_collision (rabbitBig, platforms)
     });
     if (totalWPM === undefined) {
       totalWPM = "not calculated, try again";
+    }
+    if (totalWPM > 80) {
+      highSpeedText.visible = true;
+    
+    } 
+    if (totalWPM < 80) {
+      
+      avgSpeedText.visible = true;
     }
     wpmText = this.add.text(350, 250, "WPM: " + totalWPM, {
       fontFamily: "Balsamiq Sans",
