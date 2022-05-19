@@ -74,6 +74,7 @@ let scene4 = {
   var completeTask;
   var helpText;
   var meadowThoughts;
+var StartButtonKey;
   
   // scene 1 preload
   function scene1Preload() {
@@ -142,11 +143,12 @@ let scene4 = {
       .rectangle(400, 500, 177, 77, 0x000)
       .setInteractive({ useHandCursor: true });
     // Thanks to Micah for suggestion: 
-    var StartButtonKey = this.input.keyboard.addKey('S');
+ 
+    var StartButtonKey = this.input.keyboard.addKey('ONE');
 
-        StartButtonKey.on('down', function () {
-          game.scene.start("scene2", { fadeIn: true });
-        });
+        StartButtonKey.on('down', scene1Transition, this);
+    
+    this.events.off
 
     meadowThoughts = this.sound.add("meadowThoughts")
   
@@ -164,6 +166,7 @@ let scene4 = {
     // thanks to Deisy (classmate for this awesome example)
     startButton.on("pointerup", scene1Transition, this);
     startButton.on("pointerup", enterGame, this);
+    startButton.on("pointerup", enterGame, this);
   
     const startText = this.add
       .text(startButton.x, startButton.y, "Start to play", {
@@ -180,7 +183,7 @@ let scene4 = {
     helpText = this.add.text(
       670,
       350,
-      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive! \n To enter fullscreen, \n press 7 \n To enter game click \n start button\n or press s",
+      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive! \n To enter fullscreen, \n press 7 \n To enter game click \n start button\n or press 1",
       {
         fontFamily: "Balsamiq Sans",
   
@@ -350,6 +353,7 @@ let scene4 = {
   // scene 2 create
   function scene2Create() {
     this.scale.fullscreenTarget = document.getElementById("app");
+  
     //document.getElementById('contact_add:contact_name').focus();
     sound1.stop();
     startTime = performance.now();
@@ -602,7 +606,10 @@ let scene4 = {
 			strokeThickness: 3,
       resolution: 2
     });
-  
+
+      /*moveRabbit = this.add.tween(rabbitBig).to({
+        x: 77
+      }, 78, Phaser.Easing.Linear.None);*/
     // Generate random array index
     var randIndex = Math.floor(Math.random() * wordsLevel1.length);
     // Output random word
@@ -665,8 +672,11 @@ let scene4 = {
   
             text.setText("Please type: " + newWord);
             //Move rabbit
-            rabbitBig.body.x += 77;
-            rabbitBig.x += 77;
+              
+            
+           rabbitBig.body.x += 77;
+           rabbitBig.x += 77;
+           // moveRabbit.start();
             rabbitBig.body.setVelocity(0, 48);
 
             counterWPM++;
