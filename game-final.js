@@ -107,6 +107,7 @@ let scene4 = {
   // scene 1 create
   function scene1Create() {
     this.scale.fullscreenTarget = document.getElementById("app");
+   
   
     // make a image game object to show our bkgnd image
     scene1image = this.add.image(0, 0, "title").setOrigin(0, 0);
@@ -140,6 +141,12 @@ let scene4 = {
     const startButton = this.add
       .rectangle(400, 500, 177, 77, 0x000)
       .setInteractive({ useHandCursor: true });
+    // Thanks to Micah for suggestion: 
+    var StartButtonKey = this.input.keyboard.addKey('S');
+
+        StartButtonKey.on('down', function () {
+          game.scene.start("scene2", { fadeIn: true });
+        });
 
     meadowThoughts = this.sound.add("meadowThoughts")
   
@@ -172,8 +179,8 @@ let scene4 = {
   
     helpText = this.add.text(
       670,
-      400,
-      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive! \n To enter fullscreen, \n press 7",
+      350,
+      " Type the words on \n the screen, hit ENTER \n to move Zoom Zoom,\n and keep Zoom Zoom \n alive! \n To enter fullscreen, \n press 7 \n To enter game click \n start button\n or press s",
       {
         fontFamily: "Balsamiq Sans",
   
@@ -343,6 +350,7 @@ let scene4 = {
   // scene 2 create
   function scene2Create() {
     this.scale.fullscreenTarget = document.getElementById("app");
+    //document.getElementById('contact_add:contact_name').focus();
     sound1.stop();
     startTime = performance.now();
 
@@ -617,6 +625,8 @@ let scene4 = {
   
     // issue May 3, 2022: on restart, function doesn't work neither one below
     var input = document.getElementById("textField");
+    // Thanks to Micah for suggestion: https://alvinalexander.com/blog/post/jsp/html-form-default-textfield-input-focus/
+    document.getElementById("textField").focus();
   
     // Execute a function when the user presses a key on the keyboard
     input.addEventListener("keypress", function (event) {
