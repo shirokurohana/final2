@@ -325,6 +325,10 @@ var StartButtonKey;
   // scene 2 preload
     function scene2Preload() {
     // load sound buttons
+      this.load.image('mountains-back', 'assets/images/mountains-back.png');
+		this.load.image('mountains-mid1', 'assets/images/mountains-mid1.png');
+		this.load.image('mountains-mid2', 'assets/images/mountains-mid2.png');
+      
     this.load.image("purple-soundOn", "assets/sprites/purple-soundOn.png");
     this.load.image("purple-soundOff", "assets/sprites/purple-soundOff.png");
     this.load.html("nameform", "assets/html/nameform.html");
@@ -353,7 +357,33 @@ var StartButtonKey;
   // scene 2 create
   function scene2Create() {
     this.scale.fullscreenTarget = document.getElementById("app");
-  
+    //Enable Arcade Physics
+   
+/*
+        //Set the games background colour
+        this.backgroundColor = '#697e96';
+
+        this.mountainsBack = this.add.tileSprite(0,
+            this.height - this.load.image('mountains-back').height,
+            this.width,
+            this.load.image('mountains-back').height,
+            'mountains-back'
+        );
+
+        this.mountainsMid1 = this.add.tileSprite(0,
+            this.height - this.load.image('mountains-mid1').height,
+            this.width,
+            this.load.image('mountains-mid1').height,
+            'mountains-mid1'
+        );
+
+        this.mountainsMid2 = this.add.tileSprite(0,
+            this.height - this.load.image('mountains-mid2').height,
+            this.width,
+            this.load.image('mountains-mid2').height,
+            'mountains-mid2'
+        );
+  */
     //document.getElementById('contact_add:contact_name').focus();
     sound1.stop();
     startTime = performance.now();
@@ -431,7 +461,7 @@ var StartButtonKey;
     levelUp = this.sound.add("levelUp", { loop: false });
     wrong = this.sound.add("wrong", { loop: false });
   
-    this.add.image(0, 0, "meadow").setOrigin(0, 0);
+   this.add.image(0, 0, "meadow").setOrigin(0, 0);
     const soundOnButton2 = this.add
       .image(50, 70, "purple-soundOn")
       .setInteractive({ useHandCursor: true });
@@ -902,7 +932,11 @@ var StartButtonKey;
     });*/
   }
   
-  function scene2Update() {}
+  function scene2Update() {
+    // this.mountainsBack.tilePosition.x -= 0.05;
+    //    this.mountainsMid1.tilePosition.x -= 0.3;
+    //    this.mountainsMid2.tilePosition.x -= 0.75;
+  }
   
   function collectcarrot(rabbitBig, carrots) {
     // credits to: https://cs42-week17-10-kdkups.srjcethanwilde.repl.co/
