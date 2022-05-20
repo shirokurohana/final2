@@ -57,7 +57,7 @@ let scene4 = {
       arcade: {
         fps: 120,
        gravity: { y: 300 },
-        debug: false,
+        debug: true,
       },
     },
     scene: [scene1, scene2, scene3, scene4],
@@ -325,9 +325,9 @@ var StartButtonKey;
   // scene 2 preload
     function scene2Preload() {
     // load sound buttons
-      this.load.image('mountains-back', 'assets/images/mountains-back.png');
-		this.load.image('mountains-mid1', 'assets/images/mountains-mid1.png');
-		this.load.image('mountains-mid2', 'assets/images/mountains-mid2.png');
+      this.load.image('mountains-back1', 'assets/images/mountains-back1.png');
+		this.load.image('mountains-mid11', 'assets/images/mountains-mid11.png');
+		this.load.image('mountains-mid22', 'assets/images/mountains-mid22.png');
       
     this.load.image("purple-soundOn", "assets/sprites/purple-soundOn.png");
     this.load.image("purple-soundOff", "assets/sprites/purple-soundOff.png");
@@ -353,37 +353,38 @@ var StartButtonKey;
     this.load.image("carrot", "assets/sprites/carrot1.png");
     this.load.audio("pop", "assets/sounds/pop.ogg");
     this.load.audio("goodJob", "assets/sounds/goodJob.mp3");
+      this.load.image("clouds3", "assets/images/cloud1.png");
   }
   // scene 2 create
   function scene2Create() {
     this.scale.fullscreenTarget = document.getElementById("app");
     //Enable Arcade Physics
    
-/*
-        //Set the games background colour
+
+     /*   //Set the games background colour
         this.backgroundColor = '#697e96';
 
-        this.mountainsBack = this.add.tileSprite(0,
-            this.height - this.load.image('mountains-back').height,
+        this.mountainsBack = this.add.tileSprite(300,
+            this.height - this.load.image('mountains-back1').height,
             this.width,
-            this.load.image('mountains-back').height,
-            'mountains-back'
+            this.load.image('mountains-back1').height,
+            'mountains-back1'
         );
 
-        this.mountainsMid1 = this.add.tileSprite(0,
-            this.height - this.load.image('mountains-mid1').height,
+        this.mountainsMid1 = this.add.tileSprite(300,
+            this.height - this.load.image('mountains-mid11').height,
             this.width,
-            this.load.image('mountains-mid1').height,
-            'mountains-mid1'
+            this.load.image('mountains-mid11').height,
+            'mountains-mid11'
         );
 
-        this.mountainsMid2 = this.add.tileSprite(0,
-            this.height - this.load.image('mountains-mid2').height,
+        this.mountainsMid2 = this.add.tileSprite(300,
+            this.height - this.load.image('mountains-mid22').height,
             this.width,
-            this.load.image('mountains-mid2').height,
-            'mountains-mid2'
-        );
-  */
+            this.load.image('mountains-mid22').height,
+            'mountains-mid22'
+        );*/
+  
     //document.getElementById('contact_add:contact_name').focus();
     sound1.stop();
     startTime = performance.now();
@@ -446,6 +447,8 @@ var StartButtonKey;
     platforms = this.physics.add.staticGroup();
   
     platforms.create(300, 520, "ground");
+
+    
   
     meadowThoughts = this.sound.add("meadowThoughts", {
       loop: true,
@@ -461,7 +464,7 @@ var StartButtonKey;
     levelUp = this.sound.add("levelUp", { loop: false });
     wrong = this.sound.add("wrong", { loop: false });
   
-   this.add.image(0, 0, "meadow").setOrigin(0, 0);
+ this.add.image(0, 0, "meadow").setOrigin(0, 0);
     const soundOnButton2 = this.add
       .image(50, 70, "purple-soundOn")
       .setInteractive({ useHandCursor: true });
@@ -593,6 +596,40 @@ var StartButtonKey;
   
      //console.log("new carrot", carrots.x, carrots.y);
     });
+
+    var clouds3 = this.physics.add.image(100, 200, "clouds3");
+    clouds3.setScale(0.3);
+
+  clouds3.body.allowGravity = false;
+  clouds3.body.immovable = true;
+  clouds3.body.moves = false;
+  clouds3.setVelocityX(5);
+    var clouds32 = this.physics.add.image(500, 400, "clouds3");
+    clouds32.setScale(0.3);
+
+  clouds32.body.allowGravity = false;
+  clouds32.body.immovable = true;
+  clouds32.body.moves = false;
+  clouds32.setVelocityX(5);
+this.tweens.add({
+        targets: clouds3,
+        x: 500,
+        duration: 15000,
+        ease: 'Power2',
+        repeat: -1,
+        delay: 1000,
+  yoyo: true,
+    });
+    this.tweens.add({
+        targets: clouds32,
+        x: 700,
+        duration: 17000,
+        ease: 'Power2',
+        repeat: -1,
+        delay: 1000,
+  yoyo: true,
+    });
+   
 
     this.physics.add.collider(rabbitBig, platforms, rabbitHitPlatform, null, this);
     this.physics.add.collider(rabbitBig, platforms, check_collision, null, this);
@@ -933,9 +970,10 @@ var StartButtonKey;
   }
   
   function scene2Update() {
+   // meadow.setTilePosition(this.cameras.main.scrollX);
     // this.mountainsBack.tilePosition.x -= 0.05;
-    //    this.mountainsMid1.tilePosition.x -= 0.3;
-    //    this.mountainsMid2.tilePosition.x -= 0.75;
+    //  this.mountainsMid1.tilePosition.x -= 0.3;
+    //this.mountainsMid2.tilePosition.x -= 0.75;
   }
   
   function collectcarrot(rabbitBig, carrots) {
