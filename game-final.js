@@ -97,9 +97,9 @@ var StartButtonKey;
     this.load.image("soundOn", "assets/sprites/soundOn.png");
     this.load.image("soundOff", "assets/sprites/soundOff.png");
     // load audio for sound buttons
-    this.load.audio("appear", "assets/sounds/appear.ogg");
-    this.load.audio("on", "assets/sounds/on.ogg");
-    this.load.audio("off", "assets/sounds/off.ogg");
+    this.load.audio("appear", "assets/sounds/appear.mp3");
+    this.load.audio("on", "assets/sounds/on.mp3");
+    this.load.audio("off", "assets/sounds/off.mp3");
     this.load.audio("enterSound", "assets/sounds/enter.wav");
     // extra
     this.load.audio("meadowThoughts", "assets/sounds/thatsItForToday.mp3");
@@ -347,11 +347,11 @@ var StartButtonKey;
     this.load.audio("meadowThoughts", "assets/sounds/thatsItForToday.mp3");
     this.load.audio("levelUp", "assets/sounds/levelUp.mp3");
     this.load.audio("wrong", "assets/sounds/wrong.mp3");
-    this.load.audio("crunch", "assets/sounds/crunch.3.ogg");
+    this.load.audio("crunch", "assets/sounds/crunch.3.mp3");
     this.load.image("meadow", "assets/images/meadow.jpg");
     this.load.image("ground", "assets/sprites/newPlatform.png");
     this.load.image("carrot", "assets/sprites/carrot1.png");
-    this.load.audio("pop", "assets/sounds/pop.ogg");
+    this.load.audio("pop", "assets/sounds/pop.mp3");
     this.load.audio("goodJob", "assets/sounds/goodJob.mp3");
       this.load.image("clouds3", "assets/images/cloud1.png");
   }
@@ -1274,7 +1274,7 @@ function check_collision (rabbitBig, platforms)
     this.scale.fullscreenTarget = document.getElementById("app");
     var key_stroke = String.fromCodePoint(0x2764) 	;
     enterSound = this.sound.add("enterSound", { loop: false });
-    creditsSound = this.sound.add("creditsMusic", { loop: false,
+    creditsSound = this.sound.add("creditsMusic", { loop: true,
       volume: 0.7,
     });
     creditsSound.play();
