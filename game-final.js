@@ -57,7 +57,7 @@ let scene4 = {
       arcade: {
         fps: 120,
        gravity: { y: 300 },
-        debug: true,
+        debug: false,
       },
     },
     scene: [scene1, scene2, scene3, scene4],
@@ -262,7 +262,7 @@ var StartButtonKey;
     var offToggle = sound1.setMute(true);
     var onToggle2 = meadowThoughts.setMute(true);
     var isMuted = true;
-    console.log(isMuted);
+    //console.log(isMuted);
   }
   function playsound() {
     on.play();
@@ -481,7 +481,7 @@ var StartButtonKey;
     // credits to :https://phaser.discourse.group/t/delete-an-item-in-a-group/7613/2
     const lifeHearts = this.add.group({
       key: "life",
-      frame: 1,
+      frame: 0,
       frameQuantity: 7,
     });
   
@@ -597,15 +597,15 @@ var StartButtonKey;
      //console.log("new carrot", carrots.x, carrots.y);
     });
 
-    var clouds3 = this.physics.add.image(100, 200, "clouds3");
-    clouds3.setScale(0.3);
+    var clouds3 = this.physics.add.image(-400, 200, "clouds3");
+    clouds3.setScale(0.4);
 
   clouds3.body.allowGravity = false;
   clouds3.body.immovable = true;
   clouds3.body.moves = false;
   clouds3.setVelocityX(5);
-    var clouds32 = this.physics.add.image(500, 400, "clouds3");
-    clouds32.setScale(0.3);
+    var clouds32 = this.physics.add.image(-150, 300, "clouds3");
+    clouds32.setScale(0.4);
 
   clouds32.body.allowGravity = false;
   clouds32.body.immovable = true;
@@ -613,21 +613,21 @@ var StartButtonKey;
   clouds32.setVelocityX(5);
 this.tweens.add({
         targets: clouds3,
-        x: 500,
-        duration: 15000,
+        x: 1000,
+        duration: 40000,
         ease: 'Power2',
         repeat: -1,
         delay: 1000,
-  yoyo: true,
+  yoyo: false,
     });
     this.tweens.add({
         targets: clouds32,
-        x: 700,
-        duration: 17000,
+        x: 1000,
+        duration:37000,
         ease: 'Power2',
         repeat: -1,
         delay: 1000,
-  yoyo: true,
+  yoyo: false,
     });
    
 
@@ -747,7 +747,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
 
             counterWPM++;
-            console.log(counterWPM);
+          //  console.log(counterWPM);
           }
           if (score === 100) {
             
@@ -768,7 +768,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
             // rabbitBig.body.setVelocity(20,0);
             counterWPM++;
-            console.log(counterWPM);
+           // console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
           if (score === 200) {
@@ -788,7 +788,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
            // rabbitBig.body.setVelocity(20,0);
             counterWPM++;
-            console.log(counterWPM);
+          //  console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
           if (score === 300) {
@@ -808,7 +808,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
             //rabbitBig.body.setVelocity(20,0);
             counterWPM++;
-            console.log(counterWPM);
+         //   console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
           if (score === 400) {
@@ -828,7 +828,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
             //rabbitBig.body.setVelocity(20,0);
             counterWPM++;
-            console.log(counterWPM);
+           // console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
           if (score === 500) {
@@ -848,7 +848,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
             //rabbitBig.body.setVelocity(20,0);
             counterWPM++;
-            console.log(counterWPM);
+           // console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
           if (score === 600) {
@@ -869,7 +869,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(0, 48);
      
             counterWPM++;
-            console.log(counterWPM);
+           // console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
           if (score === 700) {
@@ -892,7 +892,7 @@ this.tweens.add({
             rabbitBig.body.setVelocity(48, 0);
            // rabbitBig.body.setVelocity(20,0);
             counterWPM++;
-            console.log(counterWPM);
+           // console.log(counterWPM);
             totalCounterWPM = counterWPM;
           }
         } else if (score < 100) {
@@ -911,7 +911,7 @@ this.tweens.add({
             game.scene.start("scene3");
           }
           text.setText("Incorrect! Type: " + currentWord);
-          console.log(lifeHeartsLeft);
+         // console.log(lifeHeartsLeft);
         } else {
           wrong.play();
           counterWPM--;
@@ -922,7 +922,7 @@ this.tweens.add({
             game.scene.stop("scene2");
             game.scene.start("scene3");
           }
-          console.log(lifeHeartsLeft);
+          //console.log(lifeHeartsLeft);
           text.setText("Incorrect! Type: " + newWord);
   
           // credits to: https://phaser.discourse.group/t/delete-an-item-in-a-group/7613/2
@@ -949,12 +949,12 @@ this.tweens.add({
     // questions ???? May 8, 2022
     if (isMuted === false) {
       meadowThoughts.play();
-      console.log("sound on");
+     // console.log("sound on");
     }
   
     if (isMuted === true) {
       meadowThoughts.stop();
-      console.log("sound off");
+    //  console.log("sound off");
     }
   
     //  Checks to see if the rabbitBig overlaps with any of the carrots, if she does call the collectcarrot function
@@ -978,7 +978,7 @@ this.tweens.add({
   
   function collectcarrot(rabbitBig, carrots) {
     // credits to: https://cs42-week17-10-kdkups.srjcethanwilde.repl.co/
-    console.log("got it");
+   // console.log("got it");
     carrots.disableBody(true, true);
     grow += 0.1;
     // credits to: https://phaser.discourse.group/t/solved-setsize-not-working-on-scaled-sprites/3714
@@ -1093,10 +1093,10 @@ this.tweens.add({
   
       // get seconds
       var seconds = Math.round(timeDiff);
-      console.log(seconds + " seconds");
+   //   console.log(seconds + " seconds");
       var grossWPM = totalCounterWPM / 5 / (seconds / 10 / 60);
       totalWPM = Math.round(grossWPM * 100) / 100;
-      console.log(totalWPM);
+     // console.log(totalWPM);
   
       byeBye = true;
       meadowThoughts.stop();
@@ -1117,7 +1117,7 @@ this.tweens.add({
   }
 
 var candosomething = false;
-function rabbitHitPlatform() { console.log('bunny on platform'); 
+function rabbitHitPlatform() { //console.log('bunny on platform'); 
                              // credits to: https://phaser.discourse.group/t/how-to-check-collider-and-not-collider-between-two-objects/9273/2
                              }
 
