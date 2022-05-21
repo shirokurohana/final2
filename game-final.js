@@ -52,6 +52,7 @@ let scene4 = {
     dom: {
       createContainer: true,
     },
+   
     physics: {
       default: "arcade",
       arcade: {
